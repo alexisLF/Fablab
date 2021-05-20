@@ -1,0 +1,11 @@
+image: maven:3.6.3-jdk-8
+
+stages:
+    - test
+
+checkstyle:
+    stage: test
+    script:
+        - 'mvn checkstyle:check -e -Dcheckstyle.config.location=./cesi_checks.xml -Dcheckstyle.violationSeverity=warning -Dcheckstyle.maxAllowedViolations=20'
+    allow_failure: false
+
